@@ -11,7 +11,7 @@ table = dynamodb.create_table(
            'KeyType': 'HASH'  #Partition key
         },
         {
-            'AttributeName': 'band',
+            'AttributeName': 'artist',
             'KeyType': 'RANGE'  #Sort key
         }
     ],
@@ -21,7 +21,7 @@ table = dynamodb.create_table(
             'AttributeType': 'S'
         },
         {
-            'AttributeName': 'band',
+            'AttributeName': 'artist',
             'AttributeType': 'S'
         },
     ],
