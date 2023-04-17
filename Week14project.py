@@ -4,30 +4,30 @@ import boto3
 dynamodb = boto3.resource('dynamodb')
 
 table = dynamodb.create_table(
-    TableName='Famous Quotes',
+    TableName='Great guitar albums',
     KeySchema=[
         {
-            'AttributeName': 'id',
-            'KeyType': 'HASH'
+            'AttributeName': 'album',
+            "AttributeType": "S", # seting the type as a String
         },
         {
-            'AttributeName': 'timestamp',
-            'KeyType': 'RANGE'
+            'AttributeName': 'Band',
+            "AttributeType": "S", # seting the type as a String
         }
     ],
     AttributeDefinitions=[
         {
-            'AttributeName': 'id',
+            'AttributeName': 'album',
             'AttributeType': 'S'
         },
         {
-            'AttributeName': 'timestamp',
-            'AttributeType': 'N'
+            'AttributeName': 'Band',
+            'AttributeType': 'S'
         },
     ],
     ProvisionedThroughput={
-        'ReadCapacityUnits': 5,
-        'WriteCapacityUnits': 5
+        'ReadCapacityUnits': 10,
+        'WriteCapacityUnits': 10
     }
 )
 
