@@ -4,15 +4,15 @@ import boto3
 dynamodb = boto3.resource('dynamodb')
 
 table = dynamodb.create_table(
-    TableName='Great guitar albums',
+    TableName='great_guitar_albums',
     KeySchema=[
         {
             'AttributeName': 'album',
-            "AttributeType": "S", # seting the type as a String
+           'KeyType': 'HASH'  #Partition key
         },
         {
-            'AttributeName': 'Band',
-            "AttributeType": "S", # seting the type as a String
+            'AttributeName': 'band',
+            'KeyType': 'RANGE'  #Sort key
         }
     ],
     AttributeDefinitions=[
@@ -21,7 +21,7 @@ table = dynamodb.create_table(
             'AttributeType': 'S'
         },
         {
-            'AttributeName': 'Band',
+            'AttributeName': 'band',
             'AttributeType': 'S'
         },
     ],
