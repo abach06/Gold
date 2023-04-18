@@ -12,3 +12,4 @@ response = table_name.delete_item(
 )
 
 print('Item successfully removed')
+#this should work
